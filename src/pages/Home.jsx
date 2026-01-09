@@ -340,7 +340,7 @@ const fadeUp = {
           {featuredProperties.map((property, index) => (
             <motion.div
               key={property.id}
-              className="card group"
+              className="card group text-secondary-900 dark:text-white bg-white dark:bg-secondary-800"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -517,7 +517,7 @@ const fadeUp = {
             <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
             <p className="text-secondary-600">Find answers to common questions about our platform, cryptocurrency payments, and real estate investment.</p>
           </div>
-          <div className="space-y-8">
+          <div className="space-y-8 border-round-corner border-secondary-100 dark:border-secondary-700">
             {faqSections.map((section, sectionIndex) => (
               <div key={sectionIndex} className="bg-white rounded-lg shadow-md overflow-hidden text-secondary-900 dark:text-white bg-white dark:bg-secondary-800">
                 <div className="divide-y divide-secondary-100">

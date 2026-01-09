@@ -32,8 +32,12 @@
   }
   
   .card {
-    @apply bg-white dark:bg-secondary-800
-         text-secondary-900 dark:text-secondary-100
-         rounded-lg shadow-md overflow-hidden;
+    @apply bg-white
+         text-secondary-900
+         rounded-lg
+         shadow-md
+         border border-secondary-100
+         dark:border-secondary-700
+         overflow-hidden;
   }
 }
