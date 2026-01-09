@@ -6,6 +6,15 @@ import { FaWallet, FaStore, FaMoneyBillWave, FaExchangeAlt, FaChartLine, FaLock,
 import { SiEthereum } from 'react-icons/si';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut' }
+  }
+};
+
 function Home() {
   const [openSections, setOpenSections] = useState({});
 
@@ -215,7 +224,15 @@ function Home() {
   return (
     <div className="space-y-16">
       {/* Hero Section */}
-      <section className="relative h-[680px] flex items-center justify-center overflow-hidden">
+      {/* <section className="relative h-[680px] flex items-center justify-center overflow-hidden"> */}
+
+        <motion.section
+  variants={fadeUp}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  className="container"
+>
 
       {/* Animated Background */}
       <motion.div
@@ -275,7 +292,7 @@ function Home() {
       </button>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
 
       {/* Investment Steps */}
       <section className="container">
@@ -394,13 +411,13 @@ function Home() {
                   </div>
                 </div>
 
-                <Link
-                  to={`/properties/${property.id}`}
-                  className="btn w-full flex items-center justify-center"
+                <Link to={`/properties/${property.id}`}
+                  className="btn w-full flex items-center justify-center group"
                 >
                   Invest Now
-                  <FiArrowRight className="ml-2" />
+                  <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
+
               </div>
             </motion.div>
           ))}
