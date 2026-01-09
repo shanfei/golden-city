@@ -5,17 +5,11 @@ import { FiArrowRight, FiUser, FiClock } from 'react-icons/fi';
 import { FaWallet, FaStore, FaMoneyBillWave, FaExchangeAlt, FaChartLine, FaLock, FaUserCog, FaCoins } from 'react-icons/fa';
 import { SiEthereum } from 'react-icons/si';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import ThemeToggle from '../components/ThemeToggle';
-import { useTheme } from '../hooks/useTheme';
-
-
 
 
 function Home() {
 
-  const { theme, toggleTheme } = useTheme();
-
-  const [openSections, setOpenSections] = useState({});
+const [openSections, setOpenSections] = useState({});
 
 
 const fadeUp = {
@@ -272,8 +266,6 @@ const fadeUp = {
         </div>
         </motion.section>
       </section>
-
-    
 
       {/* Investment Steps */}
       <section className="container">
