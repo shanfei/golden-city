@@ -246,7 +246,8 @@ const fadeUp = {
           <div className="absolute inset-0 bg-black bg-opacity-50" />
         </div>
         
-        <div className="relative container text-center text-white space-y-8">
+        <div className="relative container text-center space-y-8
+                text-white">
           <motion.h1 
             className="text-5xl font-bold"
             initial={{ opacity: 0, y: 20 }}
@@ -269,9 +270,9 @@ const fadeUp = {
 
       {/* Investment Steps */}
       <section className="container">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 text-secondary-900 dark:text-white bg-white dark:bg-secondary-900">
           <h2 className="text-3xl font-bold mb-4">Start Investing in Minutes</h2>
-          <p className="text-secondary-600">Your journey to crypto-powered real estate investment</p>
+          <p className="text-secondary-600 dark:text-white">Your journey to crypto-powered real estate investment</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -284,13 +285,15 @@ const fadeUp = {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
             >
-              <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <div className="bg-white dark:bg-secondary-800
+                text-secondary-900 dark:text-secondary-100
+                p-6 rounded-lg shadow-md text-center">
                 <div className="bg-primary-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <step.icon className="text-2xl text-primary-600" />
                 </div>
                 <div className="text-primary-600 text-2xl font-bold mb-4">Step {index + 1}</div>
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-secondary-600">{step.description}</p>
+                <p className="text-secondary-600 dark:text-secondary-300">{step.description}</p>
               </div>
             </motion.div>
           ))}
@@ -398,18 +401,18 @@ const fadeUp = {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-secondary-50 pt-16">
+      <section className="bg-secondary-50 pt-16 text-secondary-900 dark:text-white bg-white dark:bg-secondary-900">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Why Choose GoldenCity</h2>
             <p className="text-secondary-600">Experience the future of real estate investment</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ">
             {advantages.map((advantage, index) => (
               <motion.div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-md text-center"
+                className="bg-white p-6 rounded-lg shadow-md text-center text-secondary-900 dark:text-white bg-white dark:bg-secondary-800"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -449,7 +452,7 @@ const fadeUp = {
       </section>
       
       {/* Blog */}
-      <div className="container bg-white py-24">
+      <div className="container bg-white py-24 text-secondary-900 dark:text-white bg-white dark:bg-secondary-900">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -462,7 +465,7 @@ const fadeUp = {
         </motion.div>
 
         {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
           {blogPosts.map((post, index) => (
             <motion.article
               key={post.id}
@@ -470,7 +473,7 @@ const fadeUp = {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
+              className="bg-white rounded-lg shadow-md overflow-hidden text-secondary-900 dark:text-white bg-white dark:bg-secondary-800"
             >
               <Link to={`/blog/${post.slug}`}>
                 <div className="relative h-48">
@@ -516,7 +519,7 @@ const fadeUp = {
           </div>
           <div className="space-y-8">
             {faqSections.map((section, sectionIndex) => (
-              <div key={sectionIndex} className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div key={sectionIndex} className="bg-white rounded-lg shadow-md overflow-hidden text-secondary-900 dark:text-white bg-white dark:bg-secondary-800">
                 <div className="divide-y divide-secondary-100">
                   {section.questions.map((item, questionIndex) => (
                     <div key={questionIndex} className="p-6">
