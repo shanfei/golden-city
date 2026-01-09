@@ -6,6 +6,12 @@ import { FaWallet, FaStore, FaMoneyBillWave, FaExchangeAlt, FaChartLine, FaLock,
 import { SiEthereum } from 'react-icons/si';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 
+
+function Home() {
+
+const [openSections, setOpenSections] = useState({});
+
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -14,9 +20,6 @@ const fadeUp = {
     transition: { duration: 0.6, ease: 'easeOut' }
   }
 };
-
-function Home() {
-  const [openSections, setOpenSections] = useState({});
 
   const featuredProperties = [
     {
@@ -223,82 +226,53 @@ function Home() {
 
   return (
     <div className="space-y-16">
+
       {/* Hero Section */}
-      {/* <section className="relative h-[680px] flex items-center justify-center overflow-hidden"> */}
+      <section className="relative h-[600px] flex items-center justify-center">
 
-        <motion.section
-  variants={fadeUp}
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
-  className="container"
->
-
-      {/* Animated Background */}
-      <motion.div
-        className="absolute inset-0"
-        initial={{ scale: 1.05 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 12, ease: 'easeOut' }}
-      >
-        <img
-          src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1800&q=80"
-          alt="Modern real estate"
-          className="w-full h-full object-cover"
-        />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-primary-900/40" />
-      </motion.div>
-  
-
-    {/* Content */}
-     <div className="relative z-10 container text-center text-white px-4">
-      <motion.h1
-        className="text-5xl md:text-6xl font-extrabold leading-tight mb-6"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-      >
-        Invest & Trade Real Estate
-        <br />
-        <span className="text-primary-400">Powered by Crypto</span>
-      </motion.h1>
-
-      <motion.p
-        className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-secondary-100"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.15 }}
-      >
-        Fractional ownership of premium properties through NFTs.
-        Start investing from just $10.
-      </motion.p>
-
-      <motion.div
-        className="flex flex-col sm:flex-row gap-4 justify-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-      >
-        <Link
-          to="/properties"
-          className="btn bg-primary-600 hover:bg-primary-700 text-white px-8 py-3"
+         <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="container"
         >
-          Explore Properties
-        </Link>
-      <button className="btn bg-white/10 backdrop-blur hover:bg-white/20 px-8 py-3">
-        <FaWallet className="mr-2" />
-        Connect Wallet
-      </button>
-        </motion.div>
-      </div>
-    </motion.section>
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1800&q=80"
+            alt="Hero background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50" />
+        </div>
+        
+        <div className="relative container text-center space-y-8
+                text-white">
+          <motion.h1 
+            className="text-5xl font-bold"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Invest and Trade in Real Estate with Cryptocurrency
+          </motion.h1>
+          <motion.p 
+            className="text-xl max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Own fractional shares of premium properties through NFTs. Start investing with as little as $10.
+          </motion.p>
+        </div>
+        </motion.section>
+      </section>
 
       {/* Investment Steps */}
       <section className="container">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 text-secondary-900 dark:text-white bg-white dark:bg-secondary-900">
           <h2 className="text-3xl font-bold mb-4">Start Investing in Minutes</h2>
-          <p className="text-secondary-600">Your journey to crypto-powered real estate investment</p>
+          <p className="text-secondary-600 dark:text-white">Your journey to crypto-powered real estate investment</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -311,13 +285,15 @@ function Home() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
             >
-              <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <div className="bg-white dark:bg-secondary-800
+                text-secondary-900 dark:text-secondary-100
+                p-6 rounded-lg shadow-md text-center">
                 <div className="bg-primary-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <step.icon className="text-2xl text-primary-600" />
                 </div>
                 <div className="text-primary-600 text-2xl font-bold mb-4">Step {index + 1}</div>
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-secondary-600">{step.description}</p>
+                <p className="text-secondary-600 dark:text-secondary-300">{step.description}</p>
               </div>
             </motion.div>
           ))}
@@ -364,7 +340,7 @@ function Home() {
           {featuredProperties.map((property, index) => (
             <motion.div
               key={property.id}
-              className="card group"
+              className="card group text-secondary-900 dark:text-white bg-white dark:bg-secondary-800"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -425,18 +401,18 @@ function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-secondary-50 pt-16">
+      <section className="bg-secondary-50 pt-16 text-secondary-900 dark:text-white bg-white dark:bg-secondary-900">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Why Choose GoldenCity</h2>
             <p className="text-secondary-600">Experience the future of real estate investment</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ">
             {advantages.map((advantage, index) => (
               <motion.div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-md text-center"
+                className="bg-white p-6 rounded-lg shadow-md text-center text-secondary-900 dark:text-white bg-white dark:bg-secondary-800"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -476,7 +452,7 @@ function Home() {
       </section>
       
       {/* Blog */}
-      <div className="container bg-white py-24">
+      <div className="container bg-white py-24 text-secondary-900 dark:text-white bg-white dark:bg-secondary-900">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -489,7 +465,7 @@ function Home() {
         </motion.div>
 
         {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
           {blogPosts.map((post, index) => (
             <motion.article
               key={post.id}
@@ -497,7 +473,7 @@ function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
+              className="bg-white rounded-lg shadow-md overflow-hidden text-secondary-900 dark:text-white bg-white dark:bg-secondary-800"
             >
               <Link to={`/blog/${post.slug}`}>
                 <div className="relative h-48">
@@ -541,9 +517,9 @@ function Home() {
             <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
             <p className="text-secondary-600">Find answers to common questions about our platform, cryptocurrency payments, and real estate investment.</p>
           </div>
-          <div className="space-y-8">
+          <div className="space-y-8 border-round-corner border-secondary-100 dark:border-secondary-700">
             {faqSections.map((section, sectionIndex) => (
-              <div key={sectionIndex} className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div key={sectionIndex} className="bg-white rounded-lg shadow-md overflow-hidden text-secondary-900 dark:text-white bg-white dark:bg-secondary-800">
                 <div className="divide-y divide-secondary-100">
                   {section.questions.map((item, questionIndex) => (
                     <div key={questionIndex} className="p-6">

@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
+import ThemeToggle from '../ThemeToggle';
+import { useTheme } from '../../hooks/useTheme';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -14,7 +17,8 @@ function Navbar() {
   ];
 
   return (
-    <nav className="bg-white shadow-sm">
+    
+    <nav className="bg-white dark:bg-secondary-900 border-b border-secondary-200 dark:border-secondary-700">
       <div className="container">
         <div className="flex justify-between h-16">
           <div className="flex">
@@ -38,6 +42,10 @@ function Navbar() {
                 {item.name}
               </Link>
             ))}
+
+             {/* Theme Toggle */}
+            <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+
             <button
               className="btn"
             >
@@ -59,13 +67,16 @@ function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden">
-            <div className="pt-2 pb-3 space-y-1">
+          <div className="md:hidden border-secondary-200 dark:border-secondary-700 border-t">
+            <div className="pt-2 pb-3 space-y-1 bg-white dark:bg-secondary-900">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="block px-3 py-2 text-base font-medium text-secondary-600 hover:text-primary-600 hover:bg-primary-50"
+                  className="block px-4 py-2 text-base font-medium
+                             text-secondary-700 dark:text-secondary-200
+                             hover:bg-secondary-100 dark:hover:bg-secondary-800
+                             hover:text-primary-600"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
