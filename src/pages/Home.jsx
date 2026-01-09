@@ -5,6 +5,18 @@ import { FiArrowRight, FiUser, FiClock } from 'react-icons/fi';
 import { FaWallet, FaStore, FaMoneyBillWave, FaExchangeAlt, FaChartLine, FaLock, FaUserCog, FaCoins } from 'react-icons/fa';
 import { SiEthereum } from 'react-icons/si';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import ThemeToggle from '../components/ThemeToggle';
+import { useTheme } from '../hooks/useTheme';
+
+
+
+
+function Home() {
+
+  const { theme, toggleTheme } = useTheme();
+
+  const [openSections, setOpenSections] = useState({});
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -14,9 +26,6 @@ const fadeUp = {
     transition: { duration: 0.6, ease: 'easeOut' }
   }
 };
-
-function Home() {
-  const [openSections, setOpenSections] = useState({});
 
   const featuredProperties = [
     {
@@ -223,76 +232,48 @@ function Home() {
 
   return (
     <div className="space-y-16">
+
       {/* Hero Section */}
-      {/* <section className="relative h-[680px] flex items-center justify-center overflow-hidden"> */}
+      <section className="relative h-[600px] flex items-center justify-center">
 
-        <motion.section
-  variants={fadeUp}
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
-  className="container"
->
-
-      {/* Animated Background */}
-      <motion.div
-        className="absolute inset-0"
-        initial={{ scale: 1.05 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 12, ease: 'easeOut' }}
-      >
-        <img
-          src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1800&q=80"
-          alt="Modern real estate"
-          className="w-full h-full object-cover"
-        />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-primary-900/40" />
-      </motion.div>
-  
-
-    {/* Content */}
-     <div className="relative z-10 container text-center text-white px-4">
-      <motion.h1
-        className="text-5xl md:text-6xl font-extrabold leading-tight mb-6"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-      >
-        Invest & Trade Real Estate
-        <br />
-        <span className="text-primary-400">Powered by Crypto</span>
-      </motion.h1>
-
-      <motion.p
-        className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-secondary-100"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.15 }}
-      >
-        Fractional ownership of premium properties through NFTs.
-        Start investing from just $10.
-      </motion.p>
-
-      <motion.div
-        className="flex flex-col sm:flex-row gap-4 justify-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-      >
-        <Link
-          to="/properties"
-          className="btn bg-primary-600 hover:bg-primary-700 text-white px-8 py-3"
+         <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="container"
         >
-          Explore Properties
-        </Link>
-      <button className="btn bg-white/10 backdrop-blur hover:bg-white/20 px-8 py-3">
-        <FaWallet className="mr-2" />
-        Connect Wallet
-      </button>
-        </motion.div>
-      </div>
-    </motion.section>
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1800&q=80"
+            alt="Hero background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50" />
+        </div>
+        
+        <div className="relative container text-center text-white space-y-8">
+          <motion.h1 
+            className="text-5xl font-bold"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Invest and Trade in Real Estate with Cryptocurrency
+          </motion.h1>
+          <motion.p 
+            className="text-xl max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Own fractional shares of premium properties through NFTs. Start investing with as little as $10.
+          </motion.p>
+        </div>
+        </motion.section>
+      </section>
+
+    
 
       {/* Investment Steps */}
       <section className="container">
